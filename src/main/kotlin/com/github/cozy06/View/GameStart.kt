@@ -1,19 +1,17 @@
 package com.github.cozy06.View
 
-import com.github.cozy06.resource.AdditionalFeatures
+import com.github.cozy06.library.AdditionalFeatures
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Image
 import java.awt.Toolkit
 import java.awt.event.KeyEvent
 import java.awt.event.KeyListener
-import java.io.File
-import javax.sound.sampled.AudioSystem
 import javax.swing.JFrame
 
 class GameStart : JFrame(), KeyListener {
     private val imageTool: Toolkit = Toolkit.getDefaultToolkit()
-    private val background: Image? = imageTool.getImage("src/main/kotlin/com/github/cozy06/resource/img/background.png")
+    private val background: Image? = imageTool.getImage("${AdditionalFeatures().filepath()}/resource/img/background.png")
     private var offscreenImage: Image? = null
     private var offscreenGraphics: Graphics? = null
     
@@ -58,8 +56,8 @@ class GameStart : JFrame(), KeyListener {
             KeyEvent.VK_UP -> if(selector != 0) {selector -= 1}
             KeyEvent.VK_DOWN -> if(selector != 3) {selector += 1}
             KeyEvent.VK_ENTER -> when(selector) {
-                0 -> AdditionalFeatures().playSound("src/main/kotlin/com/github/cozy06/resource/sound/Sound.wav")
-                1 -> AdditionalFeatures().playSound("src/main/kotlin/com/github/cozy06/resource/sound/Sound.wav")
+                0 -> AdditionalFeatures().playSound("${AdditionalFeatures().filepath()}/resource/sound/Sound.wav")
+                1 -> AdditionalFeatures().playSound("${AdditionalFeatures().filepath()}/resource/sound/Sound.wav")
                 2 -> dispose()
                 3 -> {
                     dispose()

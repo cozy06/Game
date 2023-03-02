@@ -1,6 +1,6 @@
 package com.github.cozy06.View
 
-import com.github.cozy06.resource.AdditionalFeatures
+import com.github.cozy06.library.AdditionalFeatures
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Image
@@ -12,7 +12,7 @@ import javax.swing.JFrame
 
 class Launcher : JFrame(), KeyListener {
     private val imageTool: Toolkit = Toolkit.getDefaultToolkit()
-    private val background: Image? = imageTool.getImage("src/main/kotlin/com/github/cozy06/resource/img/background.png")
+    private val background: Image? = imageTool.getImage("${AdditionalFeatures().filepath()}/resource/img/background.png")
     private var offscreenImage: Image? = null
     private var offscreenGraphics: Graphics? = null
 
@@ -60,7 +60,7 @@ class Launcher : JFrame(), KeyListener {
                     dispose()
                     GameStart()
                 }
-                1 -> AdditionalFeatures().playSound("src/main/kotlin/com/github/cozy06/resource/sound/Sound.wav")
+                1 -> AdditionalFeatures().playSound("${AdditionalFeatures().filepath()}/resource/sound/Sound.wav")
                 2 -> dispose()
             }
         }
